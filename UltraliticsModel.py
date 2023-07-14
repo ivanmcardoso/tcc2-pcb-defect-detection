@@ -8,14 +8,14 @@ base_dir = os.getcwd()
 model_path = f"{base_dir}/ultralitics_models/V3.pt"
 model = YOLO(model_path)
 
-file_name = "04-e1.jpg"
-# file_name = "01.jpg"
+# file_name = "04-e1.jpg"
+file_name = "01.jpg"
 src_path = f"{base_dir}/test_imgs/{file_name}"
 print(src_path)
 img = cv2.imread(src_path)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-results = model.predict(img, conf=0.4, iou=0.3)
+results = model.predict(img, conf=0.3, iou=0.3)
 
 for r in results:
     print(r.speed)
